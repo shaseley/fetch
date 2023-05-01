@@ -7803,11 +7803,12 @@ constructor steps are:
 
  <li><p>Set <a>this</a>'s <a for=Request>request</a> to <var>request</var>.
 
- <li><p>Set <a>this</a>'s <a for=Request>signal</a> to a <a for=/>new</a> {{AbortSignal}} object
- with <a>this</a>'s <a>relevant Realm</a>.
+ <li><p>Let <var>source signals</var> be a new <a for=/>set</a>, and <a for=list>append</a>
+ <var>signal</var> to <var>source signals</var> if <var>signal</var> is non-null.
 
- <li><p>If <var>signal</var> is non-null, then make <a>this</a>'s <a for=Request>signal</a>
- <a for=AbortSignal>follow</a> <var>signal</var>.
+ <li><p>Set <a>this</a>'s <a for=Request>signal</a> to the result of
+ <a>creating a composite abort signal</a> from <var>source signals</var> using {{AbortSignal}} and
+ <a>this</a>'s <a>relevant Realm</a>.
 
  <li><p>Set <a>this</a>'s <a for=Request>headers</a> to a <a for=/>new</a> {{Headers}} object with
  <a>this</a>'s <a>relevant Realm</a>, whose <a for=Headers>header list</a> is <var>request</var>'s
